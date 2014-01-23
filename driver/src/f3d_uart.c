@@ -34,8 +34,7 @@
 
 /* Code: */
 
-#include <stm32f30x.h>
-#include <f3d_led.h>
+#include <f3d_uart.h>
 
 void f3d_uart_init(void) {
   // Initialization routines related to UART1

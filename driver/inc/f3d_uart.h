@@ -33,6 +33,7 @@
  */
 
 /* Code: */
+#include <stm32f30x.h>
 
 void f3d_uart_init(void);
 int putchar(int);
