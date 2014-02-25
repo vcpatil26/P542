@@ -1,4 +1,4 @@
-#!/usr/bin/env python 
+#!virt/bin/python
 
 from serial import Serial, SerialException
 from datetime import datetime, time, date
@@ -46,5 +46,3 @@ class Timesetter:
 if __name__ == "__main__":
     ts = Timesetter();
     ts.sendtime();
-
-
