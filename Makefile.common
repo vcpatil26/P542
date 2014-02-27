@@ -62,7 +62,7 @@ SYSTEM_FILE=$(LIBROOT)/Libraries/CMSIS/Device/ST/STM32F30x/Source/Templates
 STARTUP_FILE=$(LIBROOT)/Libraries/CMSIS/Device/ST/STM32F30x/Source/Templates/gcc_ride7
 ACCEL_GYRO=$(LIBROOT)/Utilities/STM32F3_Discovery
 LOCAL_DRIVERS=../driver
-FATFS =./ff9b
+FATFS =../ff9b
 NEWLIB_STUBS =../newlib
 
 # Search path for standard files
