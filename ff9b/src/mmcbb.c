@@ -24,7 +24,7 @@
 /-------------------------------------------------------------------------*/
 
 #include "diskio.h"		/* Common include file for FatFs and disk I/O layer */
-#include <f3d_lcd_sd.h> 
+#include <f3d_sdcard.h> 
 #include <f3d_delay.h> 
 #include <stdio.h>
 
