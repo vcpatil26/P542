@@ -58,6 +58,12 @@ int main(void) {
   f3d_delay_init();
   f3d_systick_init();
   f3d_sdcard_init();
+  
+  /*  Provide a delay to allow the SDCARD time to go through it's power
+      up initialization. */
+  for (i=0;i<500;i++) { 
+    f3d_delay_uS(500);
+  }
 
   printf("Board Reset\n");
 
