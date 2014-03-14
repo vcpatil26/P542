@@ -64,6 +64,7 @@ ACCEL_GYRO=$(LIBROOT)/Utilities/STM32F3_Discovery
 LOCAL_DRIVERS=../driver
 FATFS =../ff9b
 NEWLIB_STUBS =../newlib
+NORDIC =../nordic
 
 # Search path for standard files
 
@@ -82,7 +83,7 @@ vpath %.c $(ACCEL_GYRO)
 vpath %.c $(LOCAL_DRIVERS)/src
 vpath %.c $(FATFS)/src
 vpath %.c $(NEWLIB_STUBS)
-
+vpath %.c $(NORDIC)
 
 #  Processor specific
 
@@ -103,6 +104,7 @@ CFLAGS+= -I$(LIBROOT)/Project/Peripheral_Examples/GPIO_IOToggle
 CFLAGS+= -I$(ACCEL_GYRO)
 CFLAGS+= -I$(LOCAL_DRIVERS)/inc
 CFLAGS+= -I$(FATFS)/src
+CFLAGS+= -I$(NORDIC)
 CFLAGS+= -Wno-multichar
 
 # Build executable 
