@@ -26,8 +26,10 @@ OBJS= $(STARTUP) main.o \
                  stm32f30x_tim.o \
                  ff.o \
                  mmcbb.o \
-                 newlib_stubs.o
-
+                 newlib_stubs.o \
+		f3d_gyro.o \
+		sensor.o
+		 
 # include common make file
 
 include $(TEMPLATEROOT)/Makefile.common

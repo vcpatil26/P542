@@ -174,7 +174,8 @@ int _read(int file, char *ptr, int len) {
 	  //
 	  // C/H335, A593
 	  // Insert your getchar function here
-	  // c = (char) getchar();
+	   //c = (char) getchar2();
+	   c= (char) getchar();
 	  // 
 	  *ptr++ = c;
 	  num++;
@@ -238,7 +239,8 @@ int _write(int file, char *ptr, int len) {
 	 //
 	 // C/H335, A593
 	 // Insert your putchar function here
-	 // putchar(*ptr++);
+	  putchar(*ptr++);
+	  //putchar2(*ptr++);
 	 // 
         }
         break;
@@ -247,7 +249,8 @@ int _write(int file, char *ptr, int len) {
 	 //
 	 // C/H335, A593
 	 // Insert your putchar function here
-	 // putchar(*ptr++);
+	  putchar(*ptr++);
+ 	  //putchar2(*ptr++);
 	 // 
         }
         break;

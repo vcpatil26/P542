@@ -58,5 +58,5 @@ void f3d_gyro_init(void);
 void f3d_gyro_read(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead);
 void f3d_gyro_write(uint8_t*, uint8_t, uint16_t);
 static uint8_t f3d_gyro_sendbyte(uint8_t);
-void f3d_gyro_getdata(float *pfData);
+void f3d_gyro_getdata(int16_t *pfData);
 /* f3d_gyro.h ends here */

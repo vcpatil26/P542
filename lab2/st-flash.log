@@ -1,0 +1,12 @@
+2014-03-31T16:53:58 INFO src/stlink-usb.c: -- exit_dfu_mode
+2014-03-31T16:53:58 INFO src/stlink-common.c: Loading device parameters....
+2014-03-31T16:53:58 INFO src/stlink-common.c: Device connected is: F3 device, id 0x10036422
+2014-03-31T16:53:58 INFO src/stlink-common.c: SRAM size: 0xa000 bytes (40 KiB), Flash: 0x40000 bytes (256 KiB) in pages of 2048 bytes
+2014-03-31T16:53:58 INFO src/stlink-common.c: Attempting to write 24868 (0x6124) bytes to stm32 address: 134217728 (0x8000000)
+Flash page at addr: 0x08000000 erasedFlash page at addr: 0x08000800 erasedFlash page at addr: 0x08001000 erasedFlash page at addr: 0x08001800 erasedFlash page at addr: 0x08002000 erasedFlash page at addr: 0x08002800 erasedFlash page at addr: 0x08003000 erasedFlash page at addr: 0x08003800 erasedFlash page at addr: 0x08004000 erasedFlash page at addr: 0x08004800 erasedFlash page at addr: 0x08005000 erasedFlash page at addr: 0x08005800 erasedFlash page at addr: 0x08006000 erased2014-03-31T16:53:58 INFO src/stlink-common.c: Finished erasing 13 pages of 2048 (0x800) bytes
+2014-03-31T16:53:58 INFO src/stlink-common.c: Starting Flash write for VL/F0 core id
+2014-03-31T16:53:58 INFO src/stlink-common.c: Successfully loaded flash loader in sram
+
+  0/12 pages written  1/12 pages written  2/12 pages written  3/12 pages written  4/12 pages written  5/12 pages written  6/12 pages written  7/12 pages written  8/12 pages written  9/12 pages written 10/12 pages written 11/12 pages written 12/12 pages written2014-03-31T16:54:00 INFO src/stlink-common.c: Starting verification of write complete
+2014-03-31T16:54:00 INFO src/stlink-common.c: Flash written and verified! jolly good!
+

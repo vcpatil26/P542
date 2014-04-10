@@ -1,0 +1,29 @@
+2014-03-30T17:38:07 INFO src/stlink-common.c: Loading device parameters....
+2014-03-30T17:38:07 WARN src/stlink-common.c: unknown chip id! 0
+libusb_handle_events() | has_error
+[!] send_recv
+libusb_handle_events() | has_error
+[!] send_recv
+libusb_handle_events() | has_error
+[!] send_recv
+libusb_handle_events() | has_error
+[!] send_recv
+libusb_handle_events() | has_error
+[!] send_recv
+libusb_handle_events() | has_error
+[!] send_recv
+libusb_handle_events() | has_error
+[!] send_recv
+libusb_handle_events() | has_error
+[!] send_recv
+libusb_handle_events() | has_error
+[!] send_recv
+libusb_handle_events() | has_error
+[!] send_recv
+libusb_handle_events() | has_error
+[!] send_recv
+stlink_sram_flash() == -1
+libusb_handle_events() | has_error
+[!] send_recv
+libusb_handle_events() | has_error
+[!] send_only

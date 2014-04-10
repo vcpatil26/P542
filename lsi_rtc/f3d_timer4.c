@@ -35,6 +35,7 @@
 /* Code: */
 
 // Pins PD12 
+#include <stm32f30x.h>
 #include <f3d_timer4.h>
 #include <f3d_led.h>
 #include <stdio.h>
@@ -108,7 +109,7 @@ void f3d_timer4_init(void) {
   TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_Toggle;
   /* TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; */
   /* TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Disable; */
-  /* TIM_OCInitStructure.TIM_Pulse = (uint16_t) (27000); // 1.5mS high time initially.  */
+  /*TIM_OCInitStructure.TIM_Pulse = (uint16_t) (27000); // 1.5mS high time initially. */ 
   /* TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High; */
   /* TIM_OCInitStructure.TIM_OCNPolarity = TIM_OCNPolarity_High; */
   /* TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Set; */
@@ -150,7 +151,7 @@ void f3d_timer4_init(void) {
   TIM_ITConfig(TIM4,TIM_IT_CC2,ENABLE);
 
   // Enable the timer
-  TIM_Cmd(TIM4, ENABLE);
+  //TIM_Cmd(TIM4, ENABLE);//
 }
 
 void f3d_frequency(uint32_t freq) {
@@ -170,6 +171,7 @@ void f3d_frequency(uint32_t freq) {
     TIM_TimeBaseStructure.TIM_Period = period;
     TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure);
     TIM_CCxCmd(TIM4,TIM_Channel_1,TIM_CCx_Enable);
+    TIM_Cmd(TIM4, ENABLE);
   }
   else {
     TIM_CCxCmd(TIM4,TIM_Channel_1,TIM_CCx_Disable);
@@ -200,16 +202,14 @@ void TIM4_IRQHandler(void) {
       cc2_rising = TIM_GetCapture2(TIM4);	
       TIM_ICInitStructure.TIM_ICPolarity=TIM_ICPolarity_Falling;
       TIM_ICInit(TIM4,&TIM_ICInitStructure);
-      cc2_capture_status=FALLING;
-      f3d_led_on(0);				
+      cc2_capture_status=FALLING;			
       break;
     case FALLING:
       cc2_falling = TIM_GetCapture2(TIM4);
       TIM_ICInitStructure.TIM_ICPolarity=TIM_ICPolarity_Rising;
       TIM_ICInit(TIM4,&TIM_ICInitStructure);
       cc2_capture_status=RISING;
-      pulse_width = cc2_falling - cc2_rising;
-      f3d_led_off(0);	
+      pulse_width = cc2_falling - cc2_rising;	
       break;
     }
   }

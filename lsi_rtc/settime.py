@@ -1,4 +1,4 @@
-#!virt/bin/python
+#!pytho/bin/python
 
 from serial import Serial, SerialException
 from datetime import datetime, time, date
@@ -29,7 +29,7 @@ class Timesetter:
         month = t[1]
         day = t[2]
         hour = t[3]
-        minute = t[4] 
+        minute = t[4]
         second = t[5]
         timestr = "%d,%d,%d,%d,%d,%d\n\r"%(hour, minute, second, month, day, year)
         print timestr
@@ -40,7 +40,7 @@ class Timesetter:
             print line.rstrip('\n')
   
 
-#        print timestr 
+# print timestr
             
          
 if __name__ == "__main__":
