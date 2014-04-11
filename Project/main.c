@@ -21,18 +21,18 @@ FIL Fil;	/* File object */
 BYTE Buff[128];	/* File read buffer */
 
 
-/*void log243( int xa, int ya, int za,int xm,int ym,int zm)
+void log243( int xa, int ya, int za,int xm,int ym,int zm)
 {	FRESULT rc;	/* Result code */
-  //DIR dir;	/* Directory object */
-  //FILINFO fno;	/* File information object */
-  /*UINT bw, br;
+  DIR dir;	/* Directory object */
+  FILINFO fno;	/* File information object */
+  UINT bw, br;
   unsigned int retval;
 	int n=0;
 	int i;
   char as[100];
 /* Provide a delay to allow the SDCARD time to go through it's power
 up initialization. */
-  /*for (i=0;i<500;i++) {
+  for (i=0;i<500;i++) {
     f3d_delay_uS(500);
   }
   f_mount(0, &Fatfs);  
@@ -60,9 +60,9 @@ up initialization. */
   printf("\nType the file content.\n");
   for (;;) {
     rc = f_read(&Fil, Buff, sizeof Buff, &br);	/* Read a chunk of file */
-    //if (rc || !br) break;	/* Error or end of file */
-    //for (i = 0; i < br; i++)	/* Type the data */
-      /*putchar(Buff[i]);
+    if (rc || !br) break;	/* Error or end of file */
+    for (i = 0; i < br; i++)	/* Type the data */
+      putchar(Buff[i]);
   }
   if (rc) die(rc);
   
@@ -78,8 +78,8 @@ up initialization. */
   printf("\nDirectory listing...\n");
   for (;;) {
     rc = f_readdir(&dir, &fno);	/* Read a directory item */
-    //if (rc || !fno.fname[0]) break;	/* Error or end of dir */
-    /*if (fno.fattrib & AM_DIR)
+    if (rc || !fno.fname[0]) break;	/* Error or end of dir */
+    if (fno.fattrib & AM_DIR)
       printf(" <dir> %s\n", fno.fname);
     else
       printf("%8lu %s\n", fno.fsize, fno.fname);
@@ -90,7 +90,7 @@ up initialization. */
   rc = disk_ioctl(0,GET_SECTOR_COUNT,&retval);
   printf("%d %d\n",rc,retval);
   while (1);
-}*/
+}
 
 
 void main(void) {
@@ -145,7 +145,7 @@ up initialization. */
     zm=mag_data[2];	
 	printf("Magnetometer data: %d,%d,%d\n",xm,ym,zm);
 	printf("Accelerometer data: %d,%d,%d\n",xa,ya,za);
-	//log243(xa,ya,za,xm,ym,zm);
+	log243(xa,ya,za,xm,ym,zm);
 
    
 }
