@@ -29,23 +29,23 @@ void log243( float xa, float ya, float za,float xm,float ym,float zm)
   unsigned int retval;
 	int n=0;
 	int i;
+	int flag=0;
   char as[100];
 /* Provide a delay to allow the SDCARD time to go through it's power
 up initialization. */
   for (i=0;i<500;i++) {
     f3d_delay_uS(500);
   }
-  f_mount(0, &Fatfs);  
-	
+  f_mount(0, &Fatfs);  	
+   if (flag=0)
+	{
    printf("\nOpen an existing file (Data logger).\n");
    rc = f_open(&Fil, "Data.TXT", FA_WRITE | FA_CREATE_ALWAYS);
    if (rc) die(rc);
-	for (int t=0;t<100000;t++)
-   	{
 	n=f_size(&Fil);
    	f_lseek(&Fil,n);
    	sprintf(as,"%f%s%f%s%f%s%f%s%f%s%f\n",xa,",",ya,",",za,",",xm,",",ym,",",zm);
-  	}
+	
  printf("\nWrite a text data.\n");
    rc = f_write(&Fil,as,strlen(as), &bw);
    if (rc) die(rc);
@@ -53,24 +53,36 @@ up initialization. */
    printf("\nClose the file.\n");
    rc = f_close(&Fil);
    if (rc) die(rc);
-
-    printf("\nOpen an existing file (message.txt).\n");
-  rc = f_open(&Fil, "Data.TXT", FA_READ);
+}
+   else
+{ printf("\nOpen an existing file (Data.txt).\n");
+  rc = f_open(&Fil, "Data.TXT", FA_WRITE);
   if (rc) die(rc);
-  
-  printf("\nType the file content.\n");
+  n=f_size(&Fil);
+   	f_lseek(&Fil,n);
+   	sprintf(as,"%f%s%f%s%f%s%f%s%f%s%f\n",xa,",",ya,",",za,",",xm,",",ym,",",zm);
+
+   printf("\nWrite a text data.\n");
+   rc = f_write(&Fil,as,strlen(as), &bw);
+   if (rc) die(rc);
+
+   printf("\nClose the file.\n");
+   rc = f_close(&Fil);
+   if (rc) die(rc);
+  }
+  /*printf("\nType the file content.\n");
   for (;;) {
     rc = f_read(&Fil, Buff, sizeof Buff, &br);	/* Read a chunk of file */
-    if (rc || !br) break;	/* Error or end of file */
-    for (i = 0; i < br; i++)	/* Type the data */
-      putchar(Buff[i]);
+    //if (rc || !br) break;	/* Error or end of file */
+    //for (i = 0; i < br; i++)	/* Type the data */
+      /*putchar(Buff[i]);
   }
   if (rc) die(rc);
   
   printf("\nClose the file.\n");
   rc = f_close(&Fil);
   if (rc) die(rc);
-
+}*/
   
   printf("\nOpen root directory.\n");
   rc = f_opendir(&dir, "");
