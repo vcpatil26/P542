@@ -21,7 +21,7 @@ FIL Fil;	/* File object */
 BYTE Buff[128];	/* File read buffer */
 
 
-void log243( int xa, int ya, int za,int xm,int ym,int zm)
+void log243( float xa, float ya, float za,float xm,float ym,float zm)
 {	FRESULT rc;	/* Result code */
   DIR dir;	/* Directory object */
   FILINFO fno;	/* File information object */
@@ -36,15 +36,16 @@ up initialization. */
     f3d_delay_uS(500);
   }
   f_mount(0, &Fatfs);  
-
+	
    printf("\nOpen an existing file (Data logger).\n");
-   rc = f_open(&Fil, "Datalogger.TXT", FA_WRITE | FA_CREATE_ALWAYS);
+   rc = f_open(&Fil, "Data.TXT", FA_WRITE | FA_CREATE_ALWAYS);
    if (rc) die(rc);
-
-   n=f_size(&Fil);
-   f_lseek(&Fil,n);
-   sprintf(as,"%d%s%d%s%d%s%d%s%d%s%d\n",xa,",",ya,",",za,",",xm,",",ym,",",zm);
-  
+	while(1)
+   	{
+	n=f_size(&Fil);
+   	f_lseek(&Fil,n);
+   	sprintf(as,"%f%s%f%s%f%s%f%s%f%s%f\n",xa,",",ya,",",za,",",xm,",",ym,",",zm);
+  	}
  printf("\nWrite a text data.\n");
    rc = f_write(&Fil,as,strlen(as), &bw);
    if (rc) die(rc);
@@ -54,7 +55,7 @@ up initialization. */
    if (rc) die(rc);
 
     printf("\nOpen an existing file (message.txt).\n");
-  rc = f_open(&Fil, "Datalogger.TXT", FA_READ);
+  rc = f_open(&Fil, "Data.TXT", FA_READ);
   if (rc) die(rc);
   
   printf("\nType the file content.\n");
@@ -99,6 +100,7 @@ void main(void) {
   f3d_i2c1_init();
   f3d_accel_init();
   f3d_mag_init();
+  f3d_delay_init();
   //f3d_led_init();
   f3d_sensor_interface_init();
   f3d_sensor_init();
@@ -114,12 +116,12 @@ void main(void) {
   //float xh,yh;
   float xm,ym,zm;
   float xa,ya,za,xna,yna;
-   DIR dir;	/* Directory object */
-  FILINFO fno;	/* File information object */
-  UINT bw, br;
-  unsigned int retval;
-	int n=0;
-	int i;
+  // DIR dir;	/* Directory object */
+  //FILINFO fno;	/* File information object */
+  //UINT bw, br;
+  //unsigned int retval;
+	//int n=0;
+	//int i;
   char as[100];
 //printf("Hrllo");
 /* Provide a delay to allow the SDCARD time to go through it's power
