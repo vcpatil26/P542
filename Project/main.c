@@ -50,6 +50,7 @@ up initialization. */
  printf("\nWrite a text data.\n");
    rc = f_write(&Fil,as,strlen(as), &bw);
    if (rc) die(rc);
+	flag=0;
 
    printf("\nClose the file.\n");
    rc = f_close(&Fil);

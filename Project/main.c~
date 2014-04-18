@@ -37,7 +37,8 @@ up initialization. */
     f3d_delay_uS(500);
   }
   f_mount(0, &Fatfs);  	
-   if (flag=0)
+   while(1)
+{if (flag=0)
 	{
    printf("\nOpen an existing file (Data logger).\n");
    rc = f_open(&Fil, "Data.TXT", FA_WRITE | FA_CREATE_ALWAYS);
@@ -70,6 +71,7 @@ up initialization. */
    rc = f_close(&Fil);
    if (rc) die(rc);
   }
+}
   /*printf("\nType the file content.\n");
   for (;;) {
     rc = f_read(&Fil, Buff, sizeof Buff, &br);	/* Read a chunk of file */
