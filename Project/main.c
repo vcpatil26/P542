@@ -112,6 +112,7 @@ up initialization. */
 void main(void) {
   f3d_systick_init();
   f3d_uart_init();
+  f3d_uart2_init();
   f3d_i2c1_init();
   f3d_accel_init();
   f3d_mag_init();
@@ -159,10 +160,11 @@ up initialization. */
     f3d_mag_read(mag_data);
     xm=mag_data[0];
     ym=mag_data[1];
-    zm=mag_data[2];	
-	printf("Magnetometer data: %d,%d,%d\n",xm,ym,zm);
-	printf("Accelerometer data: %d,%d,%d\n",xa,ya,za);
-	log243(xa,ya,za,xm,ym,zm);
+    zm=mag_data[2];
+    putchar2(getchar2_nb());	
+	//printf("Magnetometer data: %d,%d,%d\n",xm,ym,zm);
+	//printf("Accelerometer data: %d,%d,%d\n",xa,ya,za);
+	//log243(xa,ya,za,xm,ym,zm);
 
    
 }
