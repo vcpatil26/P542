@@ -125,7 +125,7 @@ up initialization. */
   }
   f_mount(0, &Fatfs);  	
    while(1)
-{if (flag=0)
+{if (flag==0)
 	{
    printf("\nOpen an existing file (Gdata).\n");
    rc = f_open(&Fil, "GPSDATA.TXT", FA_WRITE | FA_CREATE_ALWAYS);
@@ -136,7 +136,7 @@ up initialization. */
  printf("\nWrite a text data.\n");
    rc = f_write(&Fil,p,strlen(p), &bw);
    if (rc) die(rc);
-	flag=0;
+	flag=1;
 
    printf("\nClose the file.\n");
    rc = f_close(&Fil);
@@ -237,7 +237,7 @@ up initialization. */
     xa=accel_data[0];
     ya=accel_data[1];
     za=accel_data[2];
-   
+    c=0;
     //xna=(xa/sqrt((xa*xa)+(ya*ya)+(za*za)));
     //pitch=asin(-xna);
     //yna=(ya/sqrt((xa*xa)+(ya*ya)+(za*za)));
@@ -250,11 +250,19 @@ up initialization. */
     zm=mag_data[2];	
 	printf("Magnetometer data: %d,%d,%d\n",xm,ym,zm);
 	printf("Accelerometer data: %d,%d,%d\n",xa,ya,za);
-	gpslog(g);
-	 printf("Code reached here\n");
+	amlog(xa,ya,za,xm,ym,zm);
+	//gpslog(g);
+	 while(1 && c<=500){
+		printf("Code reached here\n");
+		g[c] = getchar2();
+		/*if(g[c]=='$GPGGA')
+		{gpslog(g);}*/
+		gpslog(g);
+		c++;
+		break;}
     	
     	//i++;
-	//amlog(xa,ya,za,xm,ym,zm);
+	
 	
 
    
