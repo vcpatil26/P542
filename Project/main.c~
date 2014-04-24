@@ -109,11 +109,14 @@ up initialization. */
 }
 
 
-void gpslog(char p[500] )
-{	FRESULT rc;	/* Result code */
+void gpslog(char p[20] )
+{	
+  //flush2();
+  FRESULT rc;	/* Result code */
   DIR dir;	/* Directory object */
   FILINFO fno;	/* File information object */
   UINT bw, br;
+  printf("Reached here");
   unsigned int retval;
 	int n=0;
 	int i;
@@ -251,14 +254,17 @@ up initialization. */
 	printf("Magnetometer data: %d,%d,%d\n",xm,ym,zm);
 	printf("Accelerometer data: %d,%d,%d\n",xa,ya,za);
 	amlog(xa,ya,za,xm,ym,zm);
+	char mychar[20]="new string";
+	gpslog(mychar);
 	//gpslog(g);
-	 while(1 && c<=500){
+	 /*while(1 && c<=500){
 		printf("Code reached here\n");
 		g[c] = getchar2();
-		if(g[c]=='$GPGGA')
-		{gpslog(g);}
-		c++;
-		break;}
+		/*if(g[c]=='$GPGGA')
+		{gpslog(g);}*/
+		//gpslog(g);
+		//c++;
+		//break;}*/
     	
     	//i++;
 	
