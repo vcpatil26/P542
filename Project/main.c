@@ -253,7 +253,7 @@ up initialization. */
     zm=mag_data[2];	
 	printf("Magnetometer data: %d,%d,%d\n",xm,ym,zm);
 	printf("Accelerometer data: %d,%d,%d\n",xa,ya,za);
-	amlog(xa,ya,za,xm,ym,zm);
+	//amlog(xa,ya,za,xm,ym,zm);
 	char mychar[20]="new string";
 	putchar2(getchar2());
 	//gpslog(mychar);
