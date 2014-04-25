@@ -28,8 +28,8 @@ void f3d_uart2_init(void) {
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
   GPIO_Init(GPIOD, &GPIO_InitStructure);
 
-  GPIO_PinAFConfig(GPIOC,5,GPIO_AF_7);
-  GPIO_PinAFConfig(GPIOC,6,GPIO_AF_7);
+  GPIO_PinAFConfig(GPIOD,5,GPIO_AF_7);
+  GPIO_PinAFConfig(GPIOD,6,GPIO_AF_7);
 
   USART_StructInit(&USART_InitStructure);
   USART_InitStructure.USART_BaudRate = 57600;
@@ -95,7 +95,6 @@ int getchar2_nb(void) {
 }
 
 
-
 /* if(USART_GetFlagStatus(USART2, USART_FLAG_RXNE) == (uint16_t)RESET) */
 /* return 0; */
 /* else */
@@ -107,10 +106,10 @@ int getchar2_nb(void) {
 /*
 */
 
-int getchar2_nb(void)
-{
-return (dequeue(&rxbuf2));
-}
+/* int getchar2_nb(void) */
+/* { */
+/* return (dequeue(&rxbuf2)); */
+/* } */
 
 void flush2()
 {

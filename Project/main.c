@@ -108,18 +108,18 @@ void amlog( float xa, float ya, float za,float xm,float ym,float zm)
   while (1);
 }
 
-char gpsparse(char s[200])
-{
-int i,k;
-char temp[200];
-for(i=0;i<200;i++)
-{
-if(s[i]=='$GGPA')
-{for(k=0;k<200;k++)
-{temp[k]=s[i];}
-}}
-return temp;
-}
+/* char gpsparse(char s[200]) */
+/* { */
+/* int i,k; */
+/* char temp[200]; */
+/* for(i=0;i<200;i++) */
+/* { */
+/* if(s[i]=='$GGPA') */
+/* {for(k=0;k<200;k++) */
+/* {temp[k]=s[i];} */
+/* }} */
+/* return temp; */
+/* } */
 
 void gpslog(char p[200] )
 {	
@@ -249,7 +249,7 @@ void main(void) {
     f3d_delay_uS(500);
     }*/
   printf("\n\rAlive Again\n\r");
-  
+
   /* while(1) { */
   /*   putchar2('a'); */
   /* } */
