@@ -18,7 +18,7 @@ SysTick_Config(SystemCoreClock/100);
 	setvbuf(stdin, NULL, _IONBF, 0);
      setvbuf(stdout, NULL, _IONBF, 0);
      setvbuf(stderr, NULL, _IONBF, 0);
-	 USART_ITConfig(USART1,USART_IT_TXE,ENABLE);
+//USART_ITConfig(USART1,USART_IT_TXE,ENABLE);
 
 }
 
@@ -33,7 +33,7 @@ float velocity;
 int y=0;
 for(i=0;i<8999;i=i+3){
 Raw[0]=(float)l[i]/L3G_Sensitivity_500dps;
-Raw[1]=(float)l[i+1]/L3G_Sensitivity_500dps;
+Raw[1]=(float)l[i+1]/L3G_Sensitivity_500dps; USART_ITConfig(USART1,USART_IT_TXE,ENABLE);
 Raw[2]=(float)l[i+2]/L3G_Sensitivity_500dps;
 //printf("\nX:");
 printf("%f",Raw[0]);
@@ -63,7 +63,7 @@ printf("\n\nvelocity is:%f",velocity);
 
 void SysTick_Handler(void)
 {
-  /*float pressure1;
+float pressure1;
   k++;
   j++;
   static state = 0;

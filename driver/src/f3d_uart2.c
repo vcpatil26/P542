@@ -8,12 +8,11 @@ void f3d_uart2_init(void) {
   GPIO_InitTypeDef GPIO_InitStructure;
   USART_InitTypeDef USART_InitStructure;
   NVIC_InitTypeDef NVIC_InitStructure;
-  //  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOC, ENABLE);
+
   RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOD, ENABLE);
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
 
   GPIO_StructInit(&GPIO_InitStructure);
-  //  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
@@ -22,7 +21,6 @@ void f3d_uart2_init(void) {
   GPIO_Init(GPIOD, &GPIO_InitStructure);
 
   GPIO_StructInit(&GPIO_InitStructure);
-  //  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;
   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
@@ -30,11 +28,8 @@ void f3d_uart2_init(void) {
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
   GPIO_Init(GPIOD, &GPIO_InitStructure);
 
-  /* GPIO_PinAFConfig(GPIOC,10,GPIO_AF_7); */
-  /* GPIO_PinAFConfig(GPIOC,11,GPIO_AF_7); */
-
-  GPIO_PinAFConfig(GPIOD,5,GPIO_AF_7);
-  GPIO_PinAFConfig(GPIOD,6,GPIO_AF_7);
+  GPIO_PinAFConfig(GPIOC,5,GPIO_AF_7);
+  GPIO_PinAFConfig(GPIOC,6,GPIO_AF_7);
 
   USART_StructInit(&USART_InitStructure);
   USART_InitStructure.USART_BaudRate = 57600;
@@ -48,7 +43,7 @@ void f3d_uart2_init(void) {
   // Setup the NVIC priority and subpriority
   NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x07;
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x08;
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x07;
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   NVIC_Init(&NVIC_InitStructure);
   // Enable the RX interrupt
@@ -111,12 +106,12 @@ int getchar2_nb(void) {
 /* } */
 /*
 */
-/*
-int getchar_nb(void)
+
+int getchar2_nb(void)
 {
-return (dequeue(&rxbuf));
+return (dequeue(&rxbuf2));
 }
-*/
+
 void flush2()
 {
   USART_ITConfig(USART2,USART_IT_TXE,ENABLE);

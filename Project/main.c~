@@ -108,6 +108,18 @@ up initialization. */
   while (1);
 }
 
+char gpsparse(char s[200])
+{
+int i,k;
+char temp[200];
+for(i=0;i<200;i++)
+{
+if(s[i]=='$GGPA')
+{for(k=0;k<200;k++)
+{temp[k]=s[i];}
+}}
+return temp;
+}
 
 void gpslog(char p[20] )
 {	
@@ -251,13 +263,15 @@ up initialization. */
     xm=mag_data[0];
     ym=mag_data[1];
     zm=mag_data[2];	
-	printf("Magnetometer data: %d,%d,%d\n",xm,ym,zm);
-	printf("Accelerometer data: %d,%d,%d\n",xa,ya,za);
-	amlog(xa,ya,za,xm,ym,zm);
-	char mychar[20]="new string";
-	putchar2(getchar2());
+	//printf("Magnetometer data: %d,%d,%d\n",xm,ym,zm);
+	//printf("Accelerometer data: %d,%d,%d\n",xa,ya,za);
+	//amlog(xa,ya,za,xm,ym,zm);
+	//char mychar[20]="new string";
+	//putchar(getchar2());
 	//gpslog(mychar);
-	//gpslog(g);
+	g[c]=getchar2();
+	gpsparse(g);
+	gpslog(g);
 	 /*while(1 && c<=500){
 		printf("Code reached here\n");
 		g[c] = getchar2();

@@ -108,8 +108,20 @@ void amlog( float xa, float ya, float za,float xm,float ym,float zm)
   while (1);
 }
 
+char gpsparse(char s[200])
+{
+int i,k;
+char temp[200];
+for(i=0;i<200;i++)
+{
+if(s[i]=='$GGPA')
+{for(k=0;k<200;k++)
+{temp[k]=s[i];}
+}}
+return temp;
+}
 
-void gpslog(char p[20] )
+void gpslog(char p[200] )
 {	
   //flush2();
   FRESULT rc;	/* Result code */
@@ -281,6 +293,8 @@ void main(void) {
     xm=mag_data[0];
     ym=mag_data[1];
     zm=mag_data[2];	
+
+
     printf("Magnetometer data: %d,%d,%d\n",xm,ym,zm);
     printf("Accelerometer data: %d,%d,%d\n",xa,ya,za);
     //amlog(xa,ya,za,xm,ym,zm);
@@ -296,6 +310,7 @@ void main(void) {
     //gpslog(g);
     //c++;
     //break;}*/
+
     	
     //i++;
 	
