@@ -69,7 +69,7 @@ float pressure1;
   static state = 0;
   int systick_flag;
   USART_ITConfig(USART1,USART_IT_TXE,ENABLE);
-  //USART_ITConfig(USART2,USART_IT_TXE,ENABLE);
+  USART_ITConfig(USART2,USART_IT_TXE,ENABLE);
   //USART_ITConfig(USART3,USART_IT_TXE,ENABLE);
     /* if(k%10==0 && k<30000 && falli==0) */
     /* { */

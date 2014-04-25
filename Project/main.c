@@ -251,11 +251,11 @@ up initialization. */
     xm=mag_data[0];
     ym=mag_data[1];
     zm=mag_data[2];	
-	printf("Magnetometer data: %d,%d,%d\n",xm,ym,zm);
-	printf("Accelerometer data: %d,%d,%d\n",xa,ya,za);
+	//printf("Magnetometer data: %d,%d,%d\n",xm,ym,zm);
+	//printf("Accelerometer data: %d,%d,%d\n",xa,ya,za);
 	//amlog(xa,ya,za,xm,ym,zm);
-	char mychar[20]="new string";
-	putchar2(getchar2());
+	//char mychar[20]="new string";
+	putchar(getchar2());
 	//gpslog(mychar);
 	//gpslog(g);
 	 /*while(1 && c<=500){

@@ -85,8 +85,8 @@ init_queue(&rxbuf);
 init_queue(&txbuf);
  // Setup the NVIC priority and subpriority
 NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
-NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x08;
-NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x08;
+NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x07;
+NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x07;
 NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 NVIC_Init(&NVIC_InitStructure);
 // Enable the RX interrupt
@@ -120,9 +120,9 @@ int putchar(int c) {
   //return 0;
    while (!enqueue(&txbuf,c));/*{
     if(c == '\n') USART_ITConfig(USART1,USART_IT_TXE,ENABLE);}
-    //USART_SendData(USART1, c);*/
+    //USART_SendData(USART1, c);
 
-   return 0;
+   return 0;*/
 } 
 
 int getchar(void) {
