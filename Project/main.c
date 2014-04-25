@@ -108,8 +108,20 @@ up initialization. */
   while (1);
 }
 
+char gpsparse(char s[200])
+{
+int i,k;
+char temp[200];
+for(i=0;i<200;i++)
+{
+if(s[i]=='$GGPA')
+{for(k=0;k<200;k++)
+{temp[k]=s[i];}
+}}
+return temp;
+}
 
-void gpslog(char p[20] )
+void gpslog(char p[200] )
 {	
   //flush2();
   FRESULT rc;	/* Result code */
@@ -257,6 +269,8 @@ up initialization. */
 	//char mychar[20]="new string";
 	putchar(getchar2());
 	//gpslog(mychar);
+	//g[c]=getchar2();
+	//gpsparse(g);
 	//gpslog(g);
 	 /*while(1 && c<=500){
 		printf("Code reached here\n");
