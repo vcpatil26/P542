@@ -15,11 +15,11 @@ void f3d_systick_init(void)
 {
 // Setup a systick rate of 100hz.
 SysTick_Config(SystemCoreClock/100);
-	setvbuf(stdin, NULL, _IONBF, 0);
+     setvbuf(stdin, NULL, _IONBF, 0);
      setvbuf(stdout, NULL, _IONBF, 0);
      setvbuf(stderr, NULL, _IONBF, 0);
-//USART_ITConfig(USART1,USART_IT_TXE,ENABLE);
-
+     /* USART_ITConfig(USART1,USART_IT_TXE,ENABLE); */
+     /* USART_ITConfig(USART2,USART_IT_TXE,ENABLE); */
 }
 
 
@@ -69,7 +69,7 @@ float pressure1;
   static state = 0;
   int systick_flag;
   USART_ITConfig(USART1,USART_IT_TXE,ENABLE);
-  //USART_ITConfig(USART2,USART_IT_TXE,ENABLE);
+  USART_ITConfig(USART2,USART_IT_TXE,ENABLE);
   //USART_ITConfig(USART3,USART_IT_TXE,ENABLE);
     /* if(k%10==0 && k<30000 && falli==0) */
     /* { */
